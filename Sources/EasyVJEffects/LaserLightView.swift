@@ -1,6 +1,9 @@
 import SwiftUI
 
 public struct LaserFanView: View {
+  /// Overall brightness (pass 0–1 when linking to audio levels)
+  var audioLevel: Float
+
   /// Number of laser beams (raise it to make the effect denser)
   var beamCount: Int
 
@@ -10,14 +13,11 @@ public struct LaserFanView: View {
   /// Rate at which the hue shifts over time
   var hueSpeed: Double
 
-  /// Overall brightness (pass 0–1 when linking to audio levels)
-  var globalIntensity: Float
-
-  public init(beamCount: Int = 16, speed: Double = 1.5, hueSpeed: Double = 0.05, globalIntensity: Float) {
+  public init(audioLevel: Float, beamCount: Int = 16, speed: Double = 1.5, hueSpeed: Double = 0.05) {
+    self.audioLevel = audioLevel
     self.beamCount = beamCount
     self.speed = speed
     self.hueSpeed = hueSpeed
-    self.globalIntensity = globalIntensity
   }
 
   public var body: some View {
@@ -61,7 +61,7 @@ public struct LaserFanView: View {
           beamIntensity = pow(beamIntensity, 2)
 
           // Apply the global brightness (e.g., audio level)
-          beamIntensity *= Double(globalIntensity)
+          beamIntensity *= Double(audioLevel)
 
           // Skip drawing when the beam is almost invisible
           // Lower threshold slightly so dim beams can still appear
@@ -159,7 +159,7 @@ public struct LaserFanView: View {
 #Preview {
   ZStack {
     Color.black.ignoresSafeArea()
-    LaserFanView(globalIntensity: 0.5)
+    LaserFanView(audioLevel: 0.5)
       .ignoresSafeArea()
   }
 }

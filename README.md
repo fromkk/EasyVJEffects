@@ -28,7 +28,7 @@ import EasyVJEffects
 | View | Description | Key Parameters |
 | --- | --- | --- |
 | `FireworksView` | Emits colorful bursts that are triggered by random timers or an audio-level spike. | `audioLevel`, `particlesPerFirework`, `gravity`, `launchIntervalRange`, `audioThreshold` |
-| `LaserFanView` | A club-style fan of moving beams with animated colors and pulse-driven intensity. | `beamCount`, `speed`, `hueSpeed`, `globalIntensity` |
+| `LaserFanView` | A club-style fan of moving beams with animated colors and pulse-driven intensity. | `audioLevel`, `beamCount`, `speed`, `hueSpeed` |
 | `WaveEffectView` | Expanding concentric circles that brighten and blur as audio grows louder. | `audioLevel`, `numberOfWaves`, `hueSpeed` |
 | `SpotlightOverlay` | Figure-eight spotlights that sweep the screen using configurable colors. | `colors` |
 
@@ -56,7 +56,7 @@ struct VisualizerView: View {
         gravity: 260,
         audioThreshold: 0.04
       )
-      LaserFanView(globalIntensity: liveAudioLevel)
+      LaserFanView(audioLevel: liveAudioLevel)
     }
     .task {
       for await level in audioMeter.levels {
@@ -71,4 +71,3 @@ struct VisualizerView: View {
 - Normalize any incoming audio values to the expected `0.0...1.0` range for more predictable visuals.
 - Because the effects run inside `TimelineView`, they automatically animate at the system’s animation cadence; prefer batching state updates to avoid extra work on the main thread.
 - The views are composable—stack multiple overlays in a `ZStack` and adjust parameters to build richer mixes.
-
