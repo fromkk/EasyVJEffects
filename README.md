@@ -1,6 +1,15 @@
 # EasyVJEffects
 SwiftUI views for quickly prototyping VJ/visualizer style overlays—fireworks, laser fans, spotlight washes, and concentric waves. Every effect is lightweight, customizable, and can react to an audio intensity value so you can sync it with music, microphone input, or Core Audio metering.
 
+## Samples
+| Fireworks | Laser Fan |
+| --- | --- |
+| ![Fireworks preview](https://github.com/fromkk/EasyVJEffects/releases/download/0.0.1/fireworks.gif) | ![Laser fan preview](https://github.com/fromkk/EasyVJEffects/releases/download/0.0.1/leaser.gif) |
+
+| Spotlight | Wave |
+| --- | --- |
+| ![Spotlight preview](https://github.com/fromkk/EasyVJEffects/releases/download/0.0.1/spotlight.gif) | ![Wave preview](https://github.com/fromkk/EasyVJEffects/releases/download/0.0.1/wave.gif) |
+
 ## Requirements
 - Swift 6.2 (Swift Package Manager)
 - iOS 17 / macOS 14 / visionOS 1 or newer
