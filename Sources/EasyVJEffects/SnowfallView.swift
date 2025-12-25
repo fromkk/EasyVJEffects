@@ -16,12 +16,14 @@ public struct SnowfallView: View {
     audioLevel: Float = 0.0,
     snowflakeCount: Int = 100,
     windStrength: CGFloat = 30,
-    fallSpeed: CGFloat = 50
+    fallSpeed: CGFloat = 50,
+    snowflakeSizeRange: ClosedRange<CGFloat> = 4...12
   ) {
     self.audioLevel = audioLevel
     self.snowflakeCount = snowflakeCount
     self.windStrength = windStrength
     self.fallSpeed = fallSpeed
+    self.snowflakeSizeRange = snowflakeSizeRange
   }
 
   @State private var snowflakes: [Snowflake] = []
@@ -39,6 +41,9 @@ public struct SnowfallView: View {
 
   /// Vertical fall speed
   public var fallSpeed: CGFloat
+
+  /// Size range for snowflakes
+  public var snowflakeSizeRange: ClosedRange<CGFloat>
 
   public var body: some View {
     TimelineView(.animation) { timeline in
@@ -133,7 +138,7 @@ public struct SnowfallView: View {
 
   private func initializeSnowflakes(in size: CGSize) {
     snowflakes = (0..<snowflakeCount).map { _ in
-      let flakeSize = CGFloat.random(in: 4...12)
+      let flakeSize = CGFloat.random(in: snowflakeSizeRange)
       let windVariation = CGFloat.random(in: -windStrength...windStrength)
 
       return Snowflake(
@@ -161,7 +166,8 @@ public struct SnowfallView: View {
       audioLevel: 0.3,
       snowflakeCount: 150,
       windStrength: 40,
-      fallSpeed: 60
+      fallSpeed: 60,
+      snowflakeSizeRange: 3...20
     )
   }
 }
