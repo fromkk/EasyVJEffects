@@ -40,7 +40,8 @@ import EasyVJEffects
 | `LaserFanView` | A club-style fan of moving beams with animated colors and pulse-driven intensity. | `audioLevel`, `beamCount`, `speed`, `hueSpeed` |
 | `WaveEffectView` | Expanding concentric circles that brighten and blur as audio grows louder. | `audioLevel`, `numberOfWaves`, `hueSpeed` |
 | `SpotlightOverlay` | Figure-eight spotlights that sweep the screen using configurable colors. | `colors` |
-| `SnowfallView` | Gentle snowflakes falling from the top with wind effects and rotation. | `audioLevel`, `snowflakeCount`, `windStrength`, `fallSpeed` |
+| `SnowfallView` | Gentle snowflakes falling from the top with wind effects and rotation. | `audioLevel`, `snowflakeCount`, `windStrength`, `fallSpeed`, `snowflakeSizeRange` |
+| `RainfallView` | Realistic raindrops with streak effects that intensify with audio. | `audioLevel`, `raindropCount`, `windStrength`, `fallSpeed`, `raindropLengthRange` |
 
 All effects ignore safe areas and are optimized for rendering over a full-screen background (e.g., camera feed, metal layer, or a static gradient).
 
