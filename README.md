@@ -1,5 +1,5 @@
 # EasyVJEffects
-SwiftUI views for quickly prototyping VJ/visualizer style overlays—fireworks, laser fans, spotlight washes, and concentric waves. Every effect is lightweight, customizable, and can react to an audio intensity value so you can sync it with music, microphone input, or Core Audio metering.
+SwiftUI views for quickly prototyping VJ/visualizer style overlays—fireworks, laser fans, spotlight washes, concentric waves, snowfall, and cherry blossom petals. Every effect is lightweight, customizable, and can react to an audio intensity value so you can sync it with music, microphone input, or Core Audio metering.
 
 ## Samples
 | Fireworks | Laser Fan |
@@ -42,6 +42,7 @@ import EasyVJEffects
 | `SpotlightOverlay` | Figure-eight spotlights that sweep the screen using configurable colors. | `colors` |
 | `SnowfallView` | Gentle snowflakes falling from the top with wind effects and rotation. | `audioLevel`, `snowflakeCount`, `windStrength`, `fallSpeed`, `snowflakeSizeRange` |
 | `RainfallView` | Realistic raindrops with streak effects that intensify with audio. | `audioLevel`, `raindropCount`, `windStrength`, `fallSpeed`, `raindropLengthRange` |
+| `CherryBlossomsView` | Cherry blossom petals drifting down with sinusoidal sway and rotation, in soft pink tones. | `audioLevel`, `petalCount`, `windStrength`, `fallSpeed`, `petalSizeRange` |
 
 All effects ignore safe areas and are optimized for rendering over a full-screen background (e.g., camera feed, metal layer, or a static gradient).
 
